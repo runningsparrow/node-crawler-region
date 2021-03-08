@@ -12,11 +12,13 @@ var c = new Crawler({
     // This will be called for each crawled page
     // 两次请求之间将闲置100ms
     rateLimit: 100,
-    retries: 5,  // 失败重连5次
+    retries: 2,  // 失败重连5次
     
     callback: function (error, res, done) {
+        console.log("=========start call back================")
         console.log("error: " + error)
         console.log("res: " + res)
+        console.log(res.request)
         if (error) {
             console.log("访问出错: ")
             return console.log(error);
